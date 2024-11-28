@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS `sistema_autenticacion` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sistema_autenticacion`;
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `contraseña` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contraseña`) VALUES
+(1, 'Rosa', 'Rosa@gmail.es', '$2y$10$rdvK7v5HDW8s/hLxu5u0HuUa0ICf7Ui39TGEn8CDd7w5e4HQ5EyG6'),
+(2, 'Diana', 'Diana@gmail.com', '$2y$10$Zy7JVh0t7Ky2dKSTJ7hCxuVx8gqEVV2gr1aS1OfDxsBFqCdFEBJ3K'),
+(3, 'Mariel', 'Mariel@gmail.es', '$2y$10$Uhj4vlOVT2U4Nk3ET3vSXOOsMAt8sgH/bggQoUUPlqyKTSxzEgbLC');
+
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `correo` (`correo`);
+
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
